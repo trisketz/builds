@@ -442,7 +442,7 @@ jQuery(document).ready(function(jq) {
 
 			$subMenu.prepend('<li></li>');
 			$(this).children('a').prependTo($subMenu.children().first('li'));
-			$(this).addClass('menuItem').prepend($parentLinkText);
+			$(this).addClass('menuItem').prepend('<a href="#">' + $parentLinkText + '</a>');
 
 		} else {
 			console.log('nay?');

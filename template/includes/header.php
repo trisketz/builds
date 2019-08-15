@@ -37,7 +37,7 @@ if ($this->group->get('logo') == NULL) {
 </div>
 
 <div class="super-group-header-overlay-wrap" onclick="location.href='<?php echo Route::url('index.php?option=com_groups&cn=' . $this->group->get('cn')); ?>';" style="cursor: pointer;">
-	<div class="super-group-header-overlay">
+	<header class="super-group-header-overlay">
 		<h1 class="shortname">
 			<a href="<?php echo Route::url('index.php?option=com_groups&cn=' . $this->group->get('cn')); ?>" title="<?php echo $this->group->get('description'); ?> Home">
 				<?php if ($logo) : ?>
@@ -52,12 +52,12 @@ if ($this->group->get('logo') == NULL) {
 				and Inclusive Learning<br>
 				in Data Science
 		</h1>
-	</div>
+	</header>
 </div>
 
 <div class="super-group-menu-wrap">
-	<div class="super-group-menu">
-    <button>
+	<nav class="super-group-menu">
+    <button aria-label="menu">
       <div class="hamburger"></div>
     </button>
 		<!-- ###  Start Menu Include  ### -->
@@ -65,5 +65,5 @@ if ($this->group->get('logo') == NULL) {
 		<?php include_once 'sidebar-menu.php'; ?>
     <ul class="hidden-links hidden"></ul>
 		<!-- ###  End Menu Include  ### -->
-	</div>
+	</nav>
 </div>
