@@ -1,7 +1,1 @@
 *.sublime-workspace
-
-#Ignore 'config' folder
-config/
-
-#Ignore 'uploads' folder
-uploads/
