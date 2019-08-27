@@ -74,7 +74,7 @@ $("[rel='shortcut icon']")[0].setAttribute('href', "<?php echo $favicon; ?>");
 			</div> -->
 			<!-- ###  End Sideber ### -->
 
-			<main class="super-group-content group_<?php echo $this->tab; ?>">
+			<main class="super-group-content group_<?php echo $this->tab; ?>" id="maincontent">
 				<?php
 				$title = (isset($this->page) && $this->page->get('title')) ? '' : Lang::txt('PLG_GROUPS_' . strtoupper($this->tab));
 				$title = ($title == 'PLG_GROUPS_' . strtoupper($this->tab) ? ucfirst($this->tab) : $title);

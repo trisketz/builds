@@ -348,7 +348,7 @@ a:hover {
 as most (if not all) messages are temporary */
 #sitenotice, #system-message-container {
 	position: absolute;
-    /* top: 44px; */
+    top: 44px;
     z-index: 1;
     width: 100%;
 }

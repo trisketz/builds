@@ -57,7 +57,7 @@ if ($this->group->get('logo') == NULL) {
 
 <div class="super-group-menu-wrap">
 	<nav class="super-group-menu">
-    <button aria-label="menu">
+    <button aria-label="menu" aria-haspopup="true" aria-expanded="false">
       <div class="hamburger"></div>
     </button>
 		<!-- ###  Start Menu Include  ### -->

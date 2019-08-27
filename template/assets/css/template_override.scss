@@ -1,7 +1,7 @@
 //Colors
 $toledo: #381D2A;
 $palatinatePurple: #5B1865;
-$mandy: #DB5461;
+$mandy: #D63D4D;
 $bdazzledBlue: #2C5784;
 $independance: #454B66;
 $white: #fff;
@@ -76,7 +76,10 @@ h1 {
     margin: 0 !important;
     width: 50%;
   }
-  @include respond-at(48.0625em) {
+  @include respond-at(48.75em) {
+    font-size: 2rem;
+  }
+  @include respond-at(60.625em) {
     font-size: 2.5rem;
   }
   background-color: $palatinatePurple;
@@ -147,7 +150,8 @@ h1 {
     display: flex;
     flex-wrap: wrap;
 
-    li {
+    li,
+    li.active {
       .meta {
         background: $white;
         color: $independance;
@@ -258,6 +262,8 @@ h1 {
 
 .super-group-content-wrap {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
+  padding-left: 2em;
+  padding-right: 2em;
 }
 
 .super-group-footer-wrap {
@@ -266,5 +272,51 @@ h1 {
   a {
     color: $white;
     text-decoration: underline;
+  }
+}
+
+// Link and Button Overrides
+main {
+  p a,
+  p a:visited,
+  a,
+  a:visited {
+    color: $mandy;
+    font-family: 'Dosis', 'montserratregular', Helvetica Neue, Helvetica, sans-serif;
+
+    &:hover {
+      color: $palatinatePurple;
+      text-decoration: underline;
+    }
+  }
+
+  .btn {
+    background: $mandy;
+
+    &:hover {
+      background: $palatinatePurple;
+    }
+  }
+
+  .data-entry {
+    input.entry-search-submit {
+      background: $mandy;
+
+      &:hover {
+        background: $palatinatePurple;
+      }
+    }
+  }
+}
+
+// Headers
+main {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $bdazzledBlue;
   }
 }

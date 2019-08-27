@@ -443,6 +443,7 @@ jQuery(document).ready(function(jq) {
 			$subMenu.prepend('<li></li>');
 			$(this).children('a').prependTo($subMenu.children().first('li'));
 			$(this).addClass('menuItem').prepend('<a href="#">' + $parentLinkText + '</a>');
+			$(this).attr('aria-haspopup', 'true').attr('aria-expanded', 'false');
 
 		} else {
 			console.log('nay?');
@@ -451,25 +452,35 @@ jQuery(document).ready(function(jq) {
 
 	$('.menuItem').click(function(e) {
 		$(this).find('ul').toggleClass('subMenuExpand');
+		$(this).attr('aria-expanded', 'true');
 		$('.menuItem').not($(this)).find('ul').removeClass('subMenuExpand');
+		$('.menuItem').not($(this)).attr('aria-expanded', 'false');
 		e.stopPropagation();
 	});
 
-	//Close submenu when clicking elsewhere
-	$(document).click(function(e) {
-		if ($(e.target).closest('a').length === 0) {
+	//Close submenu when clicking elsewhere or on escape
+	$(document).on('click keyup', function(e) {
+		if ($(e.target).closest('a').length === 0 || e.keyCode == 27) {
 			$('.menuItem ul').removeClass('subMenuExpand');
+			$('.menuItem').attr('aria-expanded', 'false');
 		}
 	});
 
+	//Close submenus on escape
+	$(document).keyup(function(e) {
+		if (e.keyCode == 27) {
+			$('.menuItem ul').removeClass
+		}
+	})
+
 	$(window).on('resize load', function() {
-		var $winWidth = $(window).width()
-		if ($winWidth < 769) {
+		var $mobileBtn = $('.hamburger');
+		if ($mobileBtn.is(':visible')) {
 			$('.visible-links').addClass('hidden');
 		} else {
 			$('.visible-links').removeClass('hidden');
 		}
-		if ($winWidth < 769 && $('.visible-links').hasClass('hidden')) {
+		if ($mobileBtn.is(':visible') && $('.visible-links').hasClass('hidden')) {
 			$('.super-group-menu-wrap').removeClass('menuExpand');
 		}
 	});
@@ -477,5 +488,10 @@ jQuery(document).ready(function(jq) {
 	$('.super-group-menu > button').click(function() {
 		$('.visible-links').toggleClass('hidden');
 		$('.super-group-menu-wrap').toggleClass('menuExpand');
+		if ($('.super-group-menu-wrap').hasClass('menuExpand')) {
+			$('.super-group-menu > button').attr('aria-expanded', 'true');
+		} else {
+			$('.super-group-menu > button').attr('aria-expanded', 'false');
+		}
 	});
 });
