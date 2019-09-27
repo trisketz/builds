@@ -31,7 +31,7 @@ Document::addScript($base . '/assets/js/ElementQueries.js');
 <?php $uploads = rtrim(str_replace(PATH_ROOT, '', __DIR__), 'template') . 'uploads'; ?>
 <style>
 .super-group-header-wrap {
-	<?php
+	/* <?php
 	if (file_exists(PATH_ROOT . $uploads . DS . "banner.jpg")):
 		echo "background-image: url(" . $uploads . DS . "banner.jpg);";
 	elseif (file_exists(PATH_ROOT . $uploads . DS . "banner.png")):
@@ -39,7 +39,7 @@ Document::addScript($base . '/assets/js/ElementQueries.js');
 	else:
 		echo "background-image: none;";
 	endif;
-	?>
+	?> */
 }
 </style>
 <!-- end: modify css for banner image -->

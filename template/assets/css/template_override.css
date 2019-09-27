@@ -4,7 +4,7 @@
 
 @media only screen and (min-width: 48.0625em) {
   #group-body {
-    padding-top: 256px;
+    padding-top: 215px;
   }
 }
 
@@ -14,80 +14,51 @@ h1 {
 
 @media only screen and (min-width: 48.0625em) {
   .super-group-header-overlay-wrap {
-    top: -215px;
+    top: -171px;
   }
 }
 
 .super-group-header-overlay {
   background: none;
+  display: -webkit-flex;
   display: flex;
-}
-
-@media only screen and (min-width: 48.0625em) {
-  .super-group-header-overlay {
-    height: auto;
-  }
+  height: 172px;
 }
 
 .super-group-header-overlay h1 {
-  letter-spacing: .1em;
-  position: static;
-  z-index: 0 !important;
+  left: 0;
+  position: relative;
+  top: 0;
+  z-index: 0;
 }
 
-@media only screen and (min-width: 48.0625em) {
-  .super-group-header-overlay h1 {
-    margin: 0;
-  }
-}
-
-.shortname {
-  color: #2C5784;
-  font-size: 4.5rem;
-  margin: 0 auto;
-  padding: 0 .5em !important;
-  width: 100% !important;
+.header-id {
+  background-image: url("/app/site/groups/1019/uploads/builds-logo-white.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
 }
 
 @media only screen and (min-width: 48em) {
-  .shortname {
-    text-align: right;
+  .header-id {
     width: 50%;
   }
-}
-
-@media only screen and (min-width: 48.0625em) {
-  .shortname {
-    font-size: 7rem;
-    letter-spacing: .1em;
-    margin: 0;
-    padding: .5em .5em .5em 0 !important;
-  }
-}
-
-.shortname a {
-  display: none !important;
 }
 
 .longname {
   background-color: #5B1865;
   color: #fff;
   display: none;
+  font-size: 2.3rem;
   padding: .5em 0 .5em .5em !important;
 }
 
 @media only screen and (min-width: 48em) {
   .longname {
     display: block;
-    font-size: 1.6rem;
     margin: 0 !important;
     width: 50%;
-  }
-}
-
-@media only screen and (min-width: 48.75em) {
-  .longname {
-    font-size: 2rem;
   }
 }
 
@@ -119,14 +90,16 @@ h1 {
 }
 
 .menuExpand .super-group-menu {
+  -webkit-justify-content: space-between;
   justify-content: space-between;
 }
 
-.menuExpand .super-group-menu button {
+.menuExpand .super-group-menu button.hidden-menu {
   top: 60px;
 }
 
 .menuExpand .visible-links {
+  -webkit-flex-direction: column;
   flex-direction: column;
   height: 100vh;
   position: relative;
@@ -134,7 +107,23 @@ h1 {
 }
 
 .menuExpand .visible-links .subMenuExpand {
-  top: 3.5em;
+  box-shadow: none;
+  left: 1em !important;
+  padding: 0;
+  position: relative;
+  top: 0;
+}
+
+.menuExpand .visible-links .subMenuExpand::before {
+  display: none;
+}
+
+.menuExpand .visible-links .menuItem button {
+  padding: 0.9375em 1.25em !important;
+}
+
+.menuExpand .visible-links ul {
+  background: rgba(0, 0, 0, 0.15) !important;
 }
 
 .menuExpand .visible-links ul ul {
@@ -142,6 +131,7 @@ h1 {
 }
 
 .menuExpand .visible-links li a {
+  color: #fff !important;
   padding: 0.9375em 1.25em !important;
 }
 
@@ -150,13 +140,16 @@ h1 {
 }
 
 .super-group-menu {
+  display: -webkit-flex;
   display: flex;
+  -webkit-justify-content: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .super-group-menu .cf {
+  display: -webkit-flex;
   display: flex;
-  flex-wrap: wrap;
 }
 
 .super-group-menu .cf li .meta,
@@ -175,8 +168,9 @@ h1 {
   display: none;
 }
 
-.super-group-menu .menuItem {
-  cursor: pointer;
+.super-group-menu .menuItem button {
+  font-family: 'Dosis', 'montserratregular', Helvetica Neue, Helvetica, sans-serif;
+  padding: 8px 15px !important;
 }
 
 .super-group-menu .hamburger {
@@ -186,12 +180,6 @@ h1 {
 
 .super-group-menu .hamburger::before, .super-group-menu .hamburger::after {
   background-color: #fff;
-}
-
-@media only screen and (min-width: 48.0625em) {
-  .super-group-menu .hamburger {
-    display: none;
-  }
 }
 
 .super-group-menu .group-nav li a::after {
@@ -244,7 +232,7 @@ h1 {
   display: none;
 }
 
-.super-group-menu button {
+.super-group-menu button.hidden-menu {
   background-color: #454B66;
   color: #fff;
   height: 41px;
@@ -252,7 +240,7 @@ h1 {
   width: 41px;
 }
 
-.super-group-menu button::after {
+.super-group-menu button.hidden-menu::after {
   display: none;
 }
 

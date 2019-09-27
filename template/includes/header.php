@@ -38,26 +38,24 @@ if ($this->group->get('logo') == NULL) {
 
 <div class="super-group-header-overlay-wrap" onclick="location.href='<?php echo Route::url('index.php?option=com_groups&cn=' . $this->group->get('cn')); ?>';" style="cursor: pointer;">
 	<header class="super-group-header-overlay">
-		<h1 class="shortname">
+		<h1 class="header-id">
 			<a href="<?php echo Route::url('index.php?option=com_groups&cn=' . $this->group->get('cn')); ?>" title="<?php echo $this->group->get('description'); ?> Home">
 				<?php if ($logo) : ?>
-					<img src="<?php echo $logo ?>" class="header-id-logo">
+					<img src="<?php echo $logo ?>" class="header-id-logo hide">
 				<?php endif; ?>
-				<!-- <span><?php echo $this->group->get('description'); ?></span> -->
+				<span class="hide"><?php echo $this->group->get('description'); ?></span>
 			</a>
-			B(ui)LDS
 		</h1>
 		<h1 class="longname">Biological, <br>
 				Universal, <br>
-				and Inclusive Learning<br>
-				in Data Science
+				and Inclusive Learning in Data Science
 		</h1>
 	</header>
 </div>
 
 <div class="super-group-menu-wrap">
-	<nav class="super-group-menu">
-    <button aria-label="menu" aria-haspopup="true" aria-expanded="false">
+	<nav class="super-group-menu" aria-label="main navigation">
+    <button class="hidden-menu" aria-label="menu" aria-haspopup="true" aria-expanded="false">
       <div class="hamburger"></div>
     </button>
 		<!-- ###  Start Menu Include  ### -->

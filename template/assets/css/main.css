@@ -68,7 +68,7 @@
 	left: 20px;
 	margin: 0.5em 0;
 	padding: 0;
-	width: calc(100% - 40px);
+	/* width: calc(100% - 40px); */
 	z-index: 1000;
 }
 .super-group-header-overlay h1 a {
@@ -142,6 +142,13 @@
 	color: #fff;
 	border: none;
 }
+.super-group-menu > ul li.menuItem button {
+	display: block;
+	padding: 6px 15px;
+	color: #fff;
+	border: none;
+	background-color: transparent;
+}
 .super-group-menu > ul li.protected span {
 	color: rgba(255,255,255,0.5);
 }
@@ -199,7 +206,8 @@
 
 /*** BEGIN SUBMENU ARROWS ***/
 /* https://css-tricks.com/targetting-menu-elements-submenus-navigation-bar/ */
-.super-group-menu li a:first-child:nth-last-child(2):after {
+.super-group-menu li a:first-child:nth-last-child(2):after,
+.super-group-menu > ul li.menuItem button:after {
 	content: '\2304';
 	font-family: 'Fontcons';
 	margin-left: 5px;
@@ -407,14 +415,19 @@ automatic element placement by the Hub. */
 	width: 100%;		/* Same as .super-group-header-wrap */
 }
 .header-id {
+ transition: -webkit-transform .2s ease-in-out;
  transition: transform .2s ease-in-out;
-	transform-origin: 0 50%;
+ transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out;
+	-webkit-transform-origin: 0 50%;
+	        transform-origin: 0 50%;
 }
 .header-id-scrolled {
 	position: fixed !important;
 	top: -9px !important;
- 	transform: scale(0.75);
-	transform-origin: 0 50%;
+ 	-webkit-transform: scale(0.75);
+ 	        transform: scale(0.75);
+	-webkit-transform-origin: 0 50%;
+	        transform-origin: 0 50%;
 }
 .header-id-logo {
 	position: relative;
@@ -460,7 +473,7 @@ automatic element placement by the Hub. */
 	position: relative;
 	min-width: 15.625rem;
 }
-.super-group-menu button {
+.super-group-menu button.hidden-menu {
 	position: absolute;
 	height: 100%;
 	right: 0;
@@ -472,10 +485,10 @@ automatic element placement by the Hub. */
 	cursor: pointer;
 	transition: 0.1s ease-in-out;
 }
-.super-group-menu button:hover {
+.super-group-menu button.hidden-menu:hover {
 	background-color: rgba(0,0,0,0.15);
 }
-.super-group-menu button::after {
+.super-group-menu button.hidden-menu::after {
 	content: attr(count);
 	position: absolute;
 	width: 1.875rem;
@@ -558,18 +571,20 @@ automatic element placement by the Hub. */
 		line-height: 0;
 	}
 }
-@media (min-width: 340px) and (max-width: 640px) {
+/* @media (min-width: 340px) and (max-width: 640px) {
 	.header-id {
 		z-index: 1001 !important;
 	}
-}
+} */
 
 @media (min-width: 320px) and (max-width: 339px) {
 .super-group-bar .content {
+	display: -webkit-flex;
 	display: flex;
 	height: 100%;
 }
 	.super-group-bar .content .subnav {
+		display: -webkit-flex;
 		display: flex;
 		height: 100%;
 		margin: 0;
