@@ -163,6 +163,7 @@ h1 {
 
       a {
         color: $white;
+        padding: 10px 15px !important;
       }
     }
   }
@@ -177,7 +178,11 @@ h1 {
   .menuItem {
     button {
       font-family: 'Dosis', 'montserratregular', Helvetica Neue, Helvetica, sans-serif;
-      padding: 8px 15px !important;
+
+      span {
+        display: block;
+        padding: 6px 15px;
+      }
     }
   }
 

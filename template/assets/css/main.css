@@ -207,7 +207,7 @@
 /*** BEGIN SUBMENU ARROWS ***/
 /* https://css-tricks.com/targetting-menu-elements-submenus-navigation-bar/ */
 .super-group-menu li a:first-child:nth-last-child(2):after,
-.super-group-menu > ul li.menuItem button:after {
+.super-group-menu > ul li.menuItem button span:after {
 	content: '\2304';
 	font-family: 'Fontcons';
 	margin-left: 5px;

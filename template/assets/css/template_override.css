@@ -161,6 +161,7 @@ h1 {
 .super-group-menu .cf li a,
 .super-group-menu .cf li.active a {
   color: #fff;
+  padding: 10px 15px !important;
 }
 
 .super-group-menu .super-group-menu > li[class^='group'] a::after,
@@ -170,7 +171,11 @@ h1 {
 
 .super-group-menu .menuItem button {
   font-family: 'Dosis', 'montserratregular', Helvetica Neue, Helvetica, sans-serif;
-  padding: 8px 15px !important;
+}
+
+.super-group-menu .menuItem button span {
+  display: block;
+  padding: 6px 15px;
 }
 
 .super-group-menu .hamburger {

@@ -193,7 +193,7 @@ jQuery(document).ready(function(jq) {
 
 			$subMenu.prepend('<li></li>');
 			$(this).children('a').prependTo($subMenu.children().first('li'));
-			$(this).addClass('menuItem').prepend('<button aria-label="menu item" aria-haspopup="true" aria-expanded="false">' + $parentLinkText + '</button');
+			$(this).addClass('menuItem').prepend('<button aria-label="menu item" aria-haspopup="true" aria-expanded="false"><span>' + $parentLinkText + '</span></button');
 
 		} else {
 			// do nothing
