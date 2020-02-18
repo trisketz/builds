@@ -167,9 +167,9 @@
 .super-group-menu ul ul {
 	position: absolute;
 	top: 100%;
-	left: -9999px;
-	min-width: 150px;
-	max-width: 250px;
+	/* left: -9999px; */
+	/* min-width: 150px;
+	max-width: 250px; */
 	z-index: 555;
 	background: #628a2c;
 	padding: 10px 0;

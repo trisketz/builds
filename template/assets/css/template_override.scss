@@ -107,8 +107,7 @@ h1 {
 
     .subMenuExpand {
       box-shadow: none;
-      left: 1em !important;
-      padding: 0;
+      // padding: 0;
       position: relative;
       top: 0;
 
@@ -140,7 +139,7 @@ h1 {
 }
 
 .subMenuExpand {
-  left: .625em !important;
+  display: block !important;
 }
 
 .super-group-menu {
@@ -150,8 +149,7 @@ h1 {
           justify-content: center;
   overflow: hidden;
 
-  .cf {
-    display: -webkit-flex;
+  .visible-links {
     display: flex;
 
     li,
@@ -216,12 +214,11 @@ h1 {
     }
 
     ul {
-      display: inline-block !important;
       background: $white;
       box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.65);
       -webkit-box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.65);
       -moz-box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.65);
-      top: 2.5em;
+      display: none;
 
       &::before {
         content: '';
@@ -248,13 +245,30 @@ h1 {
       ul {
         box-shadow: none;
         margin: 0;
-        max-width: 10rem;
         padding: 0;
+        padding-left: 1em;
         position: relative;
         top: auto;
 
         &::before {
           display: none;
+        }
+
+        li {
+          a {
+            position: relative;
+
+            &::before {
+              background: $independance;
+							content: '';
+							display: block;
+							height: 1px;
+							left: 0;
+							position: absolute;
+							top: 50%;
+							width: .5rem;
+            }
+          }
         }
       }
     }

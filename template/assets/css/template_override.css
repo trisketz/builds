@@ -108,8 +108,6 @@ h1 {
 
 .menuExpand .visible-links .subMenuExpand {
   box-shadow: none;
-  left: 1em !important;
-  padding: 0;
   position: relative;
   top: 0;
 }
@@ -136,7 +134,7 @@ h1 {
 }
 
 .subMenuExpand {
-  left: .625em !important;
+  display: block !important;
 }
 
 .super-group-menu {
@@ -147,13 +145,12 @@ h1 {
   overflow: hidden;
 }
 
-.super-group-menu .cf {
-  display: -webkit-flex;
+.super-group-menu .visible-links {
   display: flex;
 }
 
-.super-group-menu .cf li .meta,
-.super-group-menu .cf li.active .meta {
+.super-group-menu .visible-links li .meta,
+.super-group-menu .visible-links li.active .meta {
   background: #fff;
   color: #454B66;
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
@@ -162,8 +159,8 @@ h1 {
   top: .3em;
 }
 
-.super-group-menu .cf li a,
-.super-group-menu .cf li.active a {
+.super-group-menu .visible-links li a,
+.super-group-menu .visible-links li.active a {
   color: #fff;
   padding: 10px 15px !important;
 }
@@ -200,12 +197,11 @@ h1 {
 }
 
 .super-group-menu ul ul {
-  display: inline-block !important;
   background: #fff;
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.65);
   -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.65);
   -moz-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.65);
-  top: 2.5em;
+  display: none;
 }
 
 .super-group-menu ul ul::before {
@@ -231,14 +227,29 @@ h1 {
 .super-group-menu ul ul ul {
   box-shadow: none;
   margin: 0;
-  max-width: 10rem;
   padding: 0;
+  padding-left: 1em;
   position: relative;
   top: auto;
 }
 
 .super-group-menu ul ul ul::before {
   display: none;
+}
+
+.super-group-menu ul ul ul li a {
+  position: relative;
+}
+
+.super-group-menu ul ul ul li a::before {
+  background: #454B66;
+  content: '';
+  display: block;
+  height: 1px;
+  left: 0;
+  position: absolute;
+  top: 50%;
+  width: .5rem;
 }
 
 .super-group-menu button.hidden-menu {
