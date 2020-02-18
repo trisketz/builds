@@ -55,13 +55,12 @@ if ($this->group->get('logo') == NULL) {
 
 <div class="super-group-menu-wrap">
 	<nav class="super-group-menu" aria-label="main navigation">
-    <button class="hidden-menu" aria-label="menu" aria-haspopup="true" aria-expanded="false">
-      <div class="hamburger"></div>
-    </button>
 		<!-- ###  Start Menu Include  ### -->
 		<?php include_once dirname(__DIR__) . DS . 'helpers' . DS . 'menu.php'; ?>
 		<?php include_once 'sidebar-menu.php'; ?>
-    <ul class="hidden-links hidden"></ul>
 		<!-- ###  End Menu Include  ### -->
+    <button class="hidden-menu" aria-label="menu" aria-haspopup="true" aria-expanded="false">
+      <div class="hamburger"></div>
+    </button>
 	</nav>
 </div>

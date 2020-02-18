@@ -173,17 +173,14 @@ jQuery(document).ready(function(jq) {
 
 	// Add class to the main navigation and remove the select dropdown
 	$('.super-group-menu > ul.cf.js').addClass('visible-links');
-	$('.visible-links .option-select').remove();
-	$('.hidden-links .option-select').remove();
 
-
-	// Menu hackery
 	// Move group menu items to .super-group-menu then remove ul
 	$('#group-menu > li').each(function() {
 		$(this).appendTo('.visible-links');
 	});
 
 	$('#group-menu').remove();
+	$('.visible-links .option-select').remove();
 
 	// Make parent menu item as the first menu item in the submenu
 	$('.visible-links > li').each(function() {
@@ -193,10 +190,15 @@ jQuery(document).ready(function(jq) {
 
 			$subMenu.prepend('<li></li>');
 			$(this).children('a').prependTo($subMenu.children().first('li'));
-			$(this).addClass('menuItem').prepend('<button aria-label="menu item" aria-haspopup="true" aria-expanded="false"><span>' + $parentLinkText + '</span></button');
+			$(this).addClass('menuItem').prepend('<button aria-label="menu item" aria-haspopup="true" aria-expanded="false">' + $parentLinkText + '</button');
 
 		} else {
 			// do nothing
+		}
+
+		//Check if meta exists
+		if ($(this).children().hasClass('meta')) {
+			$(this).css('position', 'relative');
 		}
 	});
 
@@ -236,16 +238,31 @@ jQuery(document).ready(function(jq) {
 	var $nav = $('.super-group-menu');
 	var $btn = $('.super-group-menu .hidden-menu');
 	var $vlinks = $('.super-group-menu .visible-links');
-	// var $mobileBtn = $('.hamburger');
+	var $totalMenuWidth = 0;
+
+	$vlinks.children().each(function() {
+		$totalMenuWidth +=$(this).outerWidth(true);
+	});
+
+	console.log($totalMenuWidth);
 
 	$(window).on('load resize', function() {
-		var $availableSpace = $nav.width();
-		var $vlinksWidth = $vlinks.width();
-		console.log($availableSpace);
-		console.log($vlinksWidth);
+		var $availableSpace;
 
-		//If menu is overflowing avaialable space, switch to hamburger menu
-		if ($vlinksWidth > $availableSpace) {
+		//Get measurements
+		$availableSpace = $nav.width() - 40;
+		$menuWidth = 0;
+
+		$vlinks.children().each(function() {
+			$menuWidth +=$(this).outerWidth(true);
+		});
+
+		console.log($availableSpace);
+		console.log($menuWidth);
+		console.log($totalMenuWidth);
+
+		// If menu overflows the available space, change to mobile menu
+		if ($menuWidth > $availableSpace) {
 			$vlinks.addClass('hidden');
 			$btn.removeClass('hidden');
 			$nav.css('overflow', 'hidden');
@@ -253,10 +270,14 @@ jQuery(document).ready(function(jq) {
 			$vlinks.removeClass('hidden');
 			$btn.addClass('hidden');
 			$nav.css('overflow', 'initial');
+		}
 
-			if ($('.super-group-menu-wrap').hasClass('menuExpand')) {
-				$('.super-group-menu-wrap').removeClass('menuExpand');
-			}
+		if ($('.super-group-menu-wrap').hasClass('menuExpand')) {
+			$('.super-group-menu-wrap').removeClass('menuExpand');
+		}
+
+		if (!$('.super-group-menu-wrap').hasClass('menuExpand')) {
+			$('body').css('overflow', 'scroll');
 		}
 	});
 
@@ -266,9 +287,11 @@ jQuery(document).ready(function(jq) {
 		if ($('.super-group-menu-wrap').hasClass('menuExpand')) {
 			$('.super-group-menu > button').attr('aria-expanded', 'true');
 			$('.visible-links').find('ul').addClass('subMenuExpand');
+			$('body').css('overflow', 'hidden');
 		} else {
 			$('.super-group-menu > button').attr('aria-expanded', 'false');
 			$('.visible-links').find('ul').removeClass('subMenuExpand');
+			$('body').css('overflow', 'scroll');
 		}
 	});
 });

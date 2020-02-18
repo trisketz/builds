@@ -82,32 +82,12 @@ h1 {
 }
 
 .menuExpand {
-  height: 100vh;
-  left: 0;
-  overflow: scroll;
-  position: fixed;
-  top: 0;
-  width: 100vw;
-
-  .super-group-menu {
-    -webkit-justify-content: space-between;
-            justify-content: space-between;
-
-    button.hidden-menu {
-      top: 60px;
-    }
-  }
-
   .visible-links {
-    -webkit-flex-direction: column;
-            flex-direction: column;
-    height: 100vh;
-    position: relative;
-    top: 2.5625em;
+    margin-top: 3em;
+    // width: 100%;
 
     .subMenuExpand {
       box-shadow: none;
-      // padding: 0;
       position: relative;
       top: 0;
 
@@ -118,7 +98,7 @@ h1 {
 
     .menuItem {
       button {
-        padding: 0.9375em 0 !important;
+        padding: 10px 15px !important;
       }
     }
 
@@ -132,28 +112,19 @@ h1 {
     li {
       a {
         color: $white !important;
-        padding: 0.9375em 1.25em !important;
       }
     }
   }
 }
 
-.subMenuExpand {
-  display: block !important;
-}
-
 .super-group-menu {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-justify-content: center;
-          justify-content: center;
-  overflow: hidden;
+  justify-content: center;
 
   .visible-links {
-    display: flex;
 
     li,
     li.active {
+
       .meta {
         background: $white;
         color: $independance;
@@ -161,6 +132,7 @@ h1 {
         font-size: .7rem;
         font-weight: bold;
         top: .3em;
+        right: 0;
       }
 
       a {
@@ -180,21 +152,7 @@ h1 {
   .menuItem {
     button {
       font-family: 'Dosis', 'montserratregular', Helvetica Neue, Helvetica, sans-serif;
-
-      span {
-        display: block;
-        padding: 6px 15px;
-      }
-    }
-  }
-
-  .hamburger {
-    background-color: $white;
-    display: block;
-
-    &::before,
-    &::after {
-      background-color: $white;
+      padding: 12px 15px !important;
     }
   }
 
@@ -218,18 +176,6 @@ h1 {
       box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.65);
       -webkit-box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.65);
       -moz-box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.65);
-      display: none;
-
-      &::before {
-        content: '';
-        border-bottom: 11px solid $white;
-        border-left: 13px solid transparent;
-        border-right: 13px solid transparent;
-        height: 0;
-        position: absolute;
-        top: -.58em;
-        width: 0;
-      }
 
       li {
         a {
@@ -244,11 +190,6 @@ h1 {
 
       ul {
         box-shadow: none;
-        margin: 0;
-        padding: 0;
-        padding-left: 1em;
-        position: relative;
-        top: auto;
 
         &::before {
           display: none;
@@ -271,18 +212,6 @@ h1 {
           }
         }
       }
-    }
-  }
-
-  button.hidden-menu {
-    background-color: $independance;
-    color: $white;
-    height: 41px;
-    padding: 0;
-    width: 41px;
-
-    &::after {
-      display: none;
     }
   }
 }
