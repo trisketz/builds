@@ -159,12 +159,6 @@
   right: 0 !important;
 }
 
-@media (min-width: 340px) and (max-width: 640px) {
-  .header-id {
-    z-index: 1001 !important;
-  }
-}
-
 /* Menu */
 .super-group-menu-wrap {
   background: #597f2f;

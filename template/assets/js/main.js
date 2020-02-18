@@ -240,16 +240,15 @@ jQuery(document).ready(function(jq) {
 	var $vlinks = $('.super-group-menu .visible-links');
 	var $totalMenuWidth = 0;
 
+	// Get total width of menu before resizing
 	$vlinks.children().each(function() {
 		$totalMenuWidth +=$(this).outerWidth(true);
 	});
 
-	console.log($totalMenuWidth);
-
 	$(window).on('load resize', function() {
 		var $availableSpace;
 
-		//Get measurements
+		// Get measurements
 		$availableSpace = $nav.width() - 40;
 		$menuWidth = 0;
 
@@ -257,23 +256,28 @@ jQuery(document).ready(function(jq) {
 			$menuWidth +=$(this).outerWidth(true);
 		});
 
-		console.log($availableSpace);
-		console.log($menuWidth);
-		console.log($totalMenuWidth);
+		// Make sure mobile menu is not open
+		if (!$('.super-group-menu-wrap').hasClass('menuExpand')) {
 
-		// If menu overflows the available space, change to mobile menu
-		if ($menuWidth > $availableSpace) {
-			$vlinks.addClass('hidden');
-			$btn.removeClass('hidden');
-			$nav.css('overflow', 'hidden');
+			// If menu overflows the available space, change to mobile menu
+			if ($menuWidth > $availableSpace) {
+				$vlinks.addClass('hidden');
+				$btn.removeClass('hidden');
+				$nav.css('overflow', 'hidden');
+			} else {
+				$vlinks.removeClass('hidden');
+				$btn.addClass('hidden');
+				$nav.css('overflow', 'initial');
+			}
 		} else {
-			$vlinks.removeClass('hidden');
-			$btn.addClass('hidden');
-			$nav.css('overflow', 'initial');
-		}
-
-		if ($('.super-group-menu-wrap').hasClass('menuExpand')) {
-			$('.super-group-menu-wrap').removeClass('menuExpand');
+			
+			// Go back to fullsize if menu fits in the window
+			if ($totalMenuWidth < $(window).width()) {
+				$vlinks.removeClass('hidden');
+				$btn.addClass('hidden');
+				$nav.css('overflow', 'initial');
+				$('.super-group-menu-wrap').removeClass('menuExpand');
+			}
 		}
 
 		if (!$('.super-group-menu-wrap').hasClass('menuExpand')) {

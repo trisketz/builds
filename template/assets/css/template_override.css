@@ -50,7 +50,7 @@ h1 {
   background-color: #5B1865;
   color: #fff;
   display: none;
-  font-size: 2.3rem;
+  font-size: 2rem;
   padding: .5em 0 .5em .5em !important;
 }
 
@@ -62,7 +62,7 @@ h1 {
   }
 }
 
-@media only screen and (min-width: 60.625em) {
+@media only screen and (min-width: 64.4375em) {
   .longname {
     font-size: 2.5rem;
   }
@@ -72,6 +72,7 @@ h1 {
   background: #454B66;
   box-shadow: none;
   font-family: 'Dosis', 'montserratregular', Helvetica Neue, Helvetica, sans-serif;
+  height: 50px;
 }
 
 @media only screen and (min-width: 48.0625em) {
@@ -82,6 +83,7 @@ h1 {
 
 .menuExpand .visible-links {
   margin-top: 3em;
+  width: 100%;
 }
 
 .menuExpand .visible-links .subMenuExpand {
@@ -104,6 +106,10 @@ h1 {
 
 .menuExpand .visible-links ul ul {
   top: 0 !important;
+}
+
+.menuExpand .visible-links ul ul li a::before {
+  background: #fff;
 }
 
 .menuExpand .visible-links li a {
