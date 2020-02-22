@@ -270,7 +270,7 @@ jQuery(document).ready(function(jq) {
 				$nav.css('overflow', 'initial');
 			}
 		} else {
-			
+
 			// Go back to fullsize if menu fits in the window
 			if ($totalMenuWidth < $(window).width()) {
 				$vlinks.removeClass('hidden');
@@ -281,7 +281,7 @@ jQuery(document).ready(function(jq) {
 		}
 
 		if (!$('.super-group-menu-wrap').hasClass('menuExpand')) {
-			$('body').css('overflow', 'scroll');
+			$('body, html').removeClass('no-scroll');
 		}
 	});
 
@@ -291,11 +291,11 @@ jQuery(document).ready(function(jq) {
 		if ($('.super-group-menu-wrap').hasClass('menuExpand')) {
 			$('.super-group-menu > button').attr('aria-expanded', 'true');
 			$('.visible-links').find('ul').addClass('subMenuExpand');
-			$('body').css('overflow', 'hidden');
+			$('body, html').addClass('no-scroll');
 		} else {
 			$('.super-group-menu > button').attr('aria-expanded', 'false');
 			$('.visible-links').find('ul').removeClass('subMenuExpand');
-			$('body').css('overflow', 'scroll');
+			$('body, html').removeClass('no-scroll');
 		}
 	});
 });
