@@ -375,12 +375,14 @@
 }
 
 .menuExpand {
-  height: 100vh !important;
+  bottom: 0;
+  height: 100% !important;
   left: 0;
   overflow: scroll;
   position: fixed;
+  right: 0;
   top: 0;
-  width: 100vw;
+  width: 100%;
   z-index: 1002;
 }
 
@@ -396,6 +398,7 @@
 .menuExpand .visible-links {
   display: flex;
   flex-direction: column;
+  margin: 3em 0;
 }
 
 .menuExpand .visible-links ul {
